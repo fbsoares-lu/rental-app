@@ -3,7 +3,8 @@ export default {
     primary: "#0B6BFD",
     primary_light: "#DCEAFF",
     secondary: "#4CC239",
-
+    background: "#FFFFFF",
+    cards: "#F7F7F7",
     text_information: "#858585",
     text_description: "#4D4D4D",
     first_black: "#272727",
