@@ -1,12 +1,13 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
+import { RFValue } from "react-native-responsive-fontsize";
+
+interface ICardsProps {
+  isFocused: boolean;
+}
 
 export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.color.background};
-`;
-
-export const Title = styled.Text`
-  font-family: ${({ theme }) => theme.fonts.primary_700};
 `;
 
 export const HeaderContent = styled.View`
@@ -22,7 +23,7 @@ export const HeaderFooter = styled.View`
 `;
 
 export const Logo = styled.Text`
-  font-size: 22px;
+  font-size: ${RFValue(22)}px;
   margin-bottom: 32px;
   color: ${({ theme }) => theme.color.background};
   font-family: ${({ theme }) => theme.fonts.primary_700};
@@ -44,8 +45,10 @@ export const Search = styled.View`
   background-color: ${({ theme }) => theme.color.cards};
 `;
 
-export const SearchText = styled.Text`
-  font-size: 14px;
+export const SearchText = styled.TextInput`
+  flex: 1;
+  font-size: ${RFValue(12)}px;
+  padding: 10px 0;
   margin-left: 8px;
   color: ${({ theme }) => theme.color.text_information};
   font-family: ${({ theme }) => theme.fonts.primary_400};
@@ -66,13 +69,13 @@ export const HouseContent = styled.View`
 `;
 
 export const InformationRentText = styled.Text`
-  font-size: 16px;
+  font-size: ${RFValue(14)}px;
   color: ${({ theme }) => theme.color.first_black};
   font-family: ${({ theme }) => theme.fonts.primary_700};
 `;
 
 export const InformationRentDescription = styled.Text`
-  font-size: 10px;
+  font-size: ${RFValue(8)}px;
   margin-top: 2px;
   color: ${({ theme }) => theme.color.text_information};
   font-family: ${({ theme }) => theme.fonts.primary_500};
@@ -85,8 +88,25 @@ export const HouseContentInfo = styled.View`
 `;
 
 export const HouseContentText = styled.Text`
-  font-size: 12px;
+  font-size: ${RFValue(10)}px;
   margin-left: 2px;
   color: ${({ theme }) => theme.color.text_information};
   font-family: ${({ theme }) => theme.fonts.primary_600};
+`;
+
+export const Cards = styled.TouchableOpacity<ICardsProps>`
+  height: 48px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  padding: 0 20px;
+  ${({ theme, isFocused }) =>
+    isFocused
+      ? css`
+          background-color: ${theme.color.primary};
+        `
+      : css`
+          background-color: ${theme.color.cards};
+        `}
 `;
